@@ -32,10 +32,14 @@ async function checkChannels(oldState, newState) {
   
     console.log(result?.[0]?.dataValues?.lastping)
     //Send announcement
-    if(result?.[0]?.dataValues?.lastping < (Date.now() - 3600000)) {
+    let lastping = result?.[0]?.dataValues?.lastping
+    if(
+      (lastping === undefined) ||
+      (lastping < (Date.now() - 3600000))
+    ) {
       //Last message was 1h+ ago
-      let postfix = `${_.sampleSize("aeiouäöü", (Math.random() * 3) + 1)}${_.sample("dt").repeat((Math.random() * 2) + 1)}`
-      newState?.guild?.channels?.cache?.get(announcementChannel)?.send(`@here H${postfix} L${postfix}?`)
+      let postfix = `${_.sampleSize("aeiouäöü", (Math.random() * 3) + 1)}${_.sample("dt")}`.toUpperCase()
+      newState?.guild?.channels?.cache?.get(announcementChannel)?.send(`@here H${postfix}E L${postfix}E?`)
       //Update latest ping date
       await models.PingdateTable.update({lastping: Date.now()}, {
         where: {

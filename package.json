@@ -1,6 +1,6 @@
 {
   "name": "broskybot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A bot for a few private servers I'm in. This code is highly custom and probably not salvagable for other projects.",
   "main": "index.js",
   "type": "module",
