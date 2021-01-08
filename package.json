@@ -1,0 +1,23 @@
+{
+  "name": "broskybot",
+  "version": "1.0.0",
+  "description": "A bot for a few private servers I'm in. This code is highly custom and probably not salvagable for other projects.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-json-modules index.js"
+  },
+  "keywords": [],
+  "author": "NKN1396",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NKN1396/broskybot.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "lodash": "^4.17.20",
+    "sequelize": "^6.3.5",
+    "sqlite3": "^5.0.0"
+  }
+}
