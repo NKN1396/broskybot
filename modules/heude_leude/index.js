@@ -38,7 +38,7 @@ async function checkChannels(oldState, newState) {
       (lastping < (Date.now() - 3600000))
     ) {
       //Last message was 1h+ ago
-      let postfix = `${_.sampleSize("aeiouäöü", (Math.random() * 3) + 1)}${_.sample("dt")}`.toUpperCase()
+      let postfix = `${_.sampleSize("aeiouäöü", (Math.random() * 3) + 1).join("")}${_.sample("dt")}`.toUpperCase()
       newState?.guild?.channels?.cache?.get(announcementChannel)?.send(`@here H${postfix}E L${postfix}E?`)
       //Update latest ping date
       await models.PingdateTable.update({lastping: Date.now()}, {
