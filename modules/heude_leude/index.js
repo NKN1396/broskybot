@@ -14,6 +14,9 @@ async function checkChannels(oldState, newState) {
     //Check if user just recently connected
     if(!_.isNil(oldState?.channel)) { return }
     //User just recently joined (new voice connection)
+
+    //Check if only one user is currently connected
+    if(oldState.channel?.members?.size !== 1) { return }
   
     //Check if user connected to a tracked channel
     let newChannel = newState?.channel?.id
